@@ -13,6 +13,8 @@
 /[Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Examples*/**
 /[Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/Documentation/** 
 /Packages/com.unity.textmeshpro*/Samples*/**
+/Assets/TextMesh Pro/Fonts/**
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
