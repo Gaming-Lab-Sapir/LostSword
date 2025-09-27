@@ -9,11 +9,11 @@ public abstract class TransitionBase : MonoBehaviour
     protected virtual void Awake()
     {
         sourceState = GetComponentInParent<GameState>();
-        if(sourceState == null)
+        if (sourceState == null)
         {
             Debug.LogError($"Source state of {name} is null");
         }
-        if(targetState == null)
+        if (targetState == null)
         {
             Debug.LogError($"Target state of {name} is null");
         }

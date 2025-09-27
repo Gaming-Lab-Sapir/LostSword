@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseGameTransition : TransitionBase
@@ -16,7 +15,7 @@ public class PauseGameTransition : TransitionBase
     private void OnEnable()
     {
         inputActions.Enable();
-        //inputActions.Player.Menu.performed += OnMenuPressed;
+        //inputActions.Player.Menu.performed += OnMenuPressed; later i will add the currect button to pause
     }
 
     private void OnMenuPressed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -38,6 +37,6 @@ public class PauseGameTransition : TransitionBase
     private void OnDisable()
     {
         inputActions.Disable();
-        //inputActions.Player.Menu.performed -= OnMenuPressed;
+        //inputActions.Player.Menu.performed -= OnMenuPressed; also here
     }
 }
