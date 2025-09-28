@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3071926177782896136}
   - component: {fileID: 5292034669019351722}
   - component: {fileID: 6274508360944071317}
+  - component: {fileID: 6890512741896130594}
   m_Layer: 0
   m_Name: ArrowIteam
   m_TagString: ArrowIteam
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2117166327
-  m_SortingLayer: 3
+  m_SortingLayerID: -432012757
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1011920623, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -142,10 +143,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7014145099595847598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 445acba7035632f41be3f4cf0deb9faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arrowsGranted: 5
-  playerTag: Player
+--- !u!114 &6890512741896130594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014145099595847598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7f8ca3bccc08443be6571b31b23fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 141e186e608404c448742d22ae927af6, type: 2}
+  amount: 5
+  destroyOnPickup: 1
