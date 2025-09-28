@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: HealthPotionSO
   m_EditorClassIdentifier: 
   id: 
-  displayName: 
+  displayName: Health Potion
   icon: {fileID: 0}
-  type: 4
-  maxStack: 99
-  healAmount: 0
+  type: 2
+  maxStack: 10
+  healAmount: 20
   ammoAmount: 0
   isQuestItem: 0
   questIdRequired: 

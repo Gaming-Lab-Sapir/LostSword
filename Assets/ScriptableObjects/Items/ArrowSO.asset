@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ArrowSO
   m_EditorClassIdentifier: 
   id: 
-  displayName: 
+  displayName: arrow
   icon: {fileID: 0}
-  type: 4
-  maxStack: 99
+  type: 1
+  maxStack: 999
   healAmount: 0
   ammoAmount: 0
   isQuestItem: 0
