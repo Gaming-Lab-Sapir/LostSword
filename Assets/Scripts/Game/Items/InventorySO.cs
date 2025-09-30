@@ -14,22 +14,31 @@ public class InventorySO : ScriptableObject
 
     public List<ItemStack> items = new List<ItemStack>();
 
+    public event Action Changed;
+    void NotifyChanged() => Changed?.Invoke();
+
     public void AddItem(ItemSO item, int amount = 1)
     {
+        if (item == null || amount <= 0) return;
+
         foreach (var stack in items)
         {
             if (stack.item == item)
             {
                 stack.count += amount;
+                NotifyChanged();
                 return;
             }
         }
 
         items.Add(new ItemStack { item = item, count = amount });
+        NotifyChanged();
     }
 
     public bool RemoveItem(ItemSO item, int amount = 1)
     {
+        if (item == null || amount <= 0) return false;
+
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].item == item)
@@ -39,6 +48,8 @@ public class InventorySO : ScriptableObject
                     items[i].count -= amount;
                     if (items[i].count <= 0)
                         items.RemoveAt(i);
+
+                    NotifyChanged();
                     return true;
                 }
             }

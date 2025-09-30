@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   displayName: Health Potion
-  icon: {fileID: 0}
+  icon: {fileID: 366320403, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
   type: 2
   maxStack: 10
   healAmount: 20

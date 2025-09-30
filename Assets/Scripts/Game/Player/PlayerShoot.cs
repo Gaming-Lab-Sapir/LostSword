@@ -8,12 +8,10 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private int initialArrowCount = 0;
     public int CurrentArrowCount { get; private set; }
     const float StickDeadzone = 0.2f;
-    //private Animator playerAnimator; for now there is no animation for that
     InputSystem inputActions;
 
     private void Awake()
     {
-        //playerAnimator = GetComponent<Animator>();
         inputActions = new();
         CurrentArrowCount = initialArrowCount;
 
