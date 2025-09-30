@@ -5,8 +5,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int maxHealthPoints = 100;
     [SerializeField] float invincibilityDurationSeconds = 0.8f;
     [SerializeField] GameObject gameOverText;
-    public int MaxHealthPoints => maxHealthPoints;
 
+    public int MaxHealthPoints => maxHealthPoints;
     public int CurrentHealthPoints { get; private set; }
 
     float lastDamageTime = float.NegativeInfinity;
@@ -28,9 +28,25 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        if (Time.time - lastDamageTime < invincibilityDurationSeconds) return;
-        lastDamageTime = Time.time;
-        CurrentHealthPoints = Mathf.Max(0, CurrentHealthPoints - Mathf.Abs(damageAmount));
+        if (damageAmount > 0)
+        {
+            if (Time.time - lastDamageTime < invincibilityDurationSeconds) return;
+            lastDamageTime = Time.time;
+
+            CurrentHealthPoints = Mathf.Max(0, CurrentHealthPoints - damageAmount);
+            if (CurrentHealthPoints == 0) Die();
+        }
+        else if (damageAmount < 0)
+        {
+            int healAmount = -damageAmount;
+            CurrentHealthPoints = Mathf.Min(maxHealthPoints, CurrentHealthPoints + healAmount);
+        }
+    }
+
+    public void ForceDamage(int damageAmount)
+    {
+        if (damageAmount <= 0) return;
+        CurrentHealthPoints = Mathf.Max(0, CurrentHealthPoints - damageAmount);
         if (CurrentHealthPoints == 0) Die();
     }
 
