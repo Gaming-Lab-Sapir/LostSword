@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 2f;
-    [SerializeField] float destroyDelay = 0.5f;
-    [SerializeField] float arrowHitDelay = 0.05f;
+    [SerializeField] float moveSpeed = 2f;    
+    [SerializeField] float deathDelay = 0.5f;      
     [SerializeField] private int enemyDamage = 10;
-    [SerializeField] Transform target;
+    Transform target;
+
+
     bool isActive = true;
     Rigidbody2D rb;
-    Animator animator;//also here there is no animations for enemy for now.
+    Animator animator;
 
     public event Action OnEnemyDestroyed;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -30,17 +31,31 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         if (isActive && target)
+        {
+            if(animator != null)
+            {
+                animator.SetBool("Moving", true);
+                animator.SetFloat("MoveX", (target.position.x - transform.position.x));
+                animator.SetFloat("MoveY", (target.position.y - transform.position.y));
+            }
             rb.linearVelocity = ((Vector2)(target.position - transform.position)).normalized * moveSpeed;
+        }
         else
+        {
+            if (animator != null) animator.SetBool("Moving", false);
             rb.linearVelocity = Vector2.zero;
+        }
     }
 
     public void HitByArrow()
     {
         if (!isActive) return;
         isActive = false;
+
+        rb.linearVelocity = Vector2.zero;
+        if (animator != null) animator.SetTrigger("Death");                 
+        StartCoroutine(WaitToDestroy(deathDelay));   
         GameEvents.RaiseEnemyKilledByArrow();
-        StartCoroutine(WaitToDestroy(arrowHitDelay));
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -49,8 +64,11 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GameEvents.RaisePlayerDamaged(enemyDamage);
-            GetComponent<SpriteRenderer>().color = Color.red;
-            StartCoroutine(WaitToDestroy(destroyDelay));
+
+            isActive = false;
+            rb.linearVelocity = Vector2.zero;
+            if (animator != null) animator.SetTrigger("Death");            
+            StartCoroutine(WaitToDestroy(deathDelay));
         }
     }
 
