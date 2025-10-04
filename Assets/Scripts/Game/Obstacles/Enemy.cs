@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;    
-    [SerializeField] float deathDelay = 0.7f;      
+    [SerializeField] float deathDelay = 0.5f;      
     [SerializeField] private int enemyDamage = 10;
     Transform target;
 

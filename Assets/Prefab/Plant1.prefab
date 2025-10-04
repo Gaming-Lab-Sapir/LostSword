@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2147891451232198300}
   - component: {fileID: 6676305296080203177}
   - component: {fileID: 5372935263364685283}
+  - component: {fileID: 387221280031019068}
   m_Layer: 0
   m_Name: Plant1
   m_TagString: Enemy
@@ -166,5 +167,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  deathDelay: 0.7
+  deathDelay: 0.5
   enemyDamage: 10
+--- !u!95 &387221280031019068
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549403800643393650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 685aaff4d060b4b4bb07624e007fb22f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
