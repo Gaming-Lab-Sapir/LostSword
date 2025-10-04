@@ -47,8 +47,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 1
+  - name: Ground
     uniqueID: 3862954539
+    locked: 0
+  - name: AboveCharacters
+    uniqueID: 3954343
+    locked: 0
+  - name: Characters
+    uniqueID: 846553953
     locked: 0
   m_RenderingLayers:
   - Default

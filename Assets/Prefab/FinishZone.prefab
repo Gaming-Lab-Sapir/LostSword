@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2117166327
-  m_SortingLayer: 0
+  m_SortingLayerID: 846553953
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -604045147, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,13 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75b9815702559142b123d01aa204ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winnerMessage: 'WINNER '
-  pauseOnWin: 1
-  winnerText: {fileID: 0}
-  level1Text: {fileID: 6862053693931727762}
-  level2Text: {fileID: 6923331142138490245}
-  level3Text: {fileID: 992999163330441128}
-  totalLevels: 3
+  onlyOnce: 1
+  actionName: Level1Complete
 --- !u!1 &7329834313889820736
 GameObject:
   m_ObjectHideFlags: 0
