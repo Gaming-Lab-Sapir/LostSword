@@ -32,12 +32,12 @@ public class FinishZoneTransition : MonoBehaviour
 
         if (requiredQuest != null && (QuestManager.Instance == null || !QuestManager.Instance.IsCompleted(requiredQuest)))
         {
-            Debug.Log("Finish blocked: quest not completed.");
+            Debug.Log("quest not completed");
             return;
         }
 
         used = true;
-        Debug.Log("Finish ");
+        Debug.Log("finish");
         if (transition != null) transition.DoAction();
     }
 }
