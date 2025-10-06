@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
     {
         if (quest == null) return;
         completed.Add(quest.id);
+        GameEvents.RaiseQuestCompleted(quest.id);
     }
 
     public bool IsCompleted(QuestInfoSO quest)

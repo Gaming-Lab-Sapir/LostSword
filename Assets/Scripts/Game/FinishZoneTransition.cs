@@ -2,21 +2,24 @@
 
 public class FinishZoneTransition : MonoBehaviour
 {
-    [SerializeField] private bool onlyOnce = true;
+    [Header("Transition")]
     [SerializeField] private string actionName;
+    [SerializeField] private bool onlyOnce = true;
+
+    [Header("Requirement")]
+    [SerializeField] private QuestInfoSO requiredQuest; 
 
     private bool used;
     private NamedActionTransition transition;
 
     private void Awake()
     {
-        NamedActionTransition[] actionTransitions = FindObjectsByType<NamedActionTransition>(FindObjectsSortMode.None);
-
-        for (int i = 0; i < actionTransitions.Length; i++)
+        NamedActionTransition[] all = FindObjectsByType<NamedActionTransition>(FindObjectsSortMode.None);
+        for (int i = 0; i < all.Length; i++)
         {
-            if (actionTransitions[i] != null && actionTransitions[i].actionName == actionName)
+            if (all[i] != null && all[i].actionName == actionName)
             {
-                transition = actionTransitions[i];
+                transition = all[i];
                 break;
             }
         }
@@ -25,11 +28,16 @@ public class FinishZoneTransition : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (onlyOnce && used) return;
+        if (!other.CompareTag("Player")) return;
 
-        bool isPlayer = other.CompareTag("Player");
-        if (!isPlayer) return;
+        if (requiredQuest != null && (QuestManager.Instance == null || !QuestManager.Instance.IsCompleted(requiredQuest)))
+        {
+            Debug.Log("Finish blocked: quest not completed.");
+            return;
+        }
 
         used = true;
+        Debug.Log("Finish ");
         if (transition != null) transition.DoAction();
     }
 }
