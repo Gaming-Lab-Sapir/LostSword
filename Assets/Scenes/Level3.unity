@@ -949,11 +949,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 945124063741117174, guid: 4c3fa17c38bf08946a459d7ed3b171d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7893994
+      value: -1.72
       objectReference: {fileID: 0}
     - target: {fileID: 945124063741117174, guid: 4c3fa17c38bf08946a459d7ed3b171d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0676947
+      value: 5.69
       objectReference: {fileID: 0}
     - target: {fileID: 945124063741117174, guid: 4c3fa17c38bf08946a459d7ed3b171d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53441,11 +53441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251078816957593105, guid: 740257e4fc6a6bd4e8c32b160fb0d8fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7407
+      value: -9.18
       objectReference: {fileID: 0}
     - target: {fileID: 8251078816957593105, guid: 740257e4fc6a6bd4e8c32b160fb0d8fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3992
+      value: 4.45
       objectReference: {fileID: 0}
     - target: {fileID: 8251078816957593105, guid: 740257e4fc6a6bd4e8c32b160fb0d8fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53510,10 +53510,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leverId: Lever1
-  oneShot: 1
-  isOn: 0
-  offSprite: {fileID: 0}
-  onSprite: {fileID: 0}
 --- !u!1001 &7054851687116557647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53594,11 +53590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2082673549974629276, guid: 0e1390478c457e8498f58d518ee3c5de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5193
+      value: 2.99
       objectReference: {fileID: 0}
     - target: {fileID: 2082673549974629276, guid: 0e1390478c457e8498f58d518ee3c5de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4517
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 2082673549974629276, guid: 0e1390478c457e8498f58d518ee3c5de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53671,10 +53667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leverId: Lever2
-  oneShot: 1
-  isOn: 0
-  offSprite: {fileID: 0}
-  onSprite: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
