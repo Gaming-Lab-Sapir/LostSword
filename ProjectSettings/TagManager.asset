@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - Arrow
   - ShootingPoint
+  - Boss
   layers:
   - Default
   - TransparentFX
