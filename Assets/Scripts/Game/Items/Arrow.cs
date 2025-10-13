@@ -4,6 +4,7 @@ public class Arrow : MonoBehaviour
 {
     [SerializeField] float arrowSpeed = 12f;
     [SerializeField] float arrowLifetime = 10f;
+    [SerializeField] int damage = 10;   
 
     Rigidbody2D rb;
     Vector2 direction;
@@ -25,14 +26,27 @@ public class Arrow : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Walls"))
+        var boss = other.GetComponentInParent<BossVampire>();
+        if (boss)
         {
+            boss.OnArrowHit(damage);
             Destroy(gameObject);
+            return;
         }
-        else if (other.CompareTag("Enemy"))
+
+       
+        if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy>()?.HitByArrow();
             Destroy(gameObject);
+            return;
+        }
+
+        
+        if (other.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
+            return;
         }
     }
 }
