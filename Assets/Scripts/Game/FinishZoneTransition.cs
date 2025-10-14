@@ -7,7 +7,8 @@ public class FinishZoneTransition : MonoBehaviour
     [SerializeField] private bool onlyOnce = true;
 
     [Header("Requirement")]
-    [SerializeField] private QuestInfoSO requiredQuest; 
+    [SerializeField] private QuestInfoSO requiredQuest;
+    [SerializeField] private ItemSO requiredItem;
 
     private bool used;
     private NamedActionTransition transition;
@@ -34,6 +35,15 @@ public class FinishZoneTransition : MonoBehaviour
         {
             Debug.Log("quest not completed");
             return;
+        }
+        if (requiredItem != null)
+        {
+            var inv = other.GetComponent<PlayerInventory>();
+            if (inv == null || inv.inventory == null || !inv.inventory.HasItem(requiredItem))
+            {
+                Debug.Log($"need '{requiredItem.name}' item to finish");
+                return;
+            }
         }
 
         used = true;

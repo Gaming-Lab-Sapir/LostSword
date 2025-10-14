@@ -19,6 +19,9 @@ public class BossVampire : MonoBehaviour
     [SerializeField] float attackDelay = 0.5f;
     [SerializeField] float attackDuration = 0.5f;
     [SerializeField] float attackCooldown = 1.5f;
+
+    [Header("Quest")]
+    [SerializeField] private GameObject swordPrefab;
     public int CurrentHealth { get; private set; }
     public Rigidbody2D Rb { get; private set; }
     public Animator Anim { get; private set; }
@@ -44,6 +47,7 @@ public class BossVampire : MonoBehaviour
         get => nextAttackAllowedTime;
         set => nextAttackAllowedTime = value;
     }
+    public GameObject SwordPrefab => swordPrefab;
 
     public event Action OnBossDestroyed;
 
