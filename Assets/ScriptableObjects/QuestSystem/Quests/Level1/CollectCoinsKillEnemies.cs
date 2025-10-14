@@ -13,9 +13,9 @@ public class CollectCoinsKillEnemies : QuestStep
 
     private void OnEnable()
     {
-        GameEvents.CoinCollected += OnCoinCollected;           
-        GameEvents.EnemyKilledByArrow += OnEnemyKilled;        
-        UpdateProgressUI();
+        GameEvents.CoinCollected += OnCoinCollected;
+        GameEvents.EnemyKilledByArrow += OnEnemyKilled;
+        UpdateProgressUI(); 
     }
 
     private void OnDisable()
@@ -43,15 +43,18 @@ public class CollectCoinsKillEnemies : QuestStep
     private void TryComplete()
     {
         if (!IsComplete) return;
-        FinishQuest(); 
+
+        if (questInfo != null)
+            GameEvents.RaiseQuestCompleted(questInfo.id);
+
+        FinishQuest();
     }
 
     private void UpdateProgressUI()
     {
         if (questInfo != null)
             GameEvents.RaiseQuestProgress(questInfo.id, coins + kills, coinsToComplete + enemiesToKill);
-        
+
+        GameEvents.RaiseQuestCounters(coins, kills, coinsToComplete, enemiesToKill);
     }
-
 }
-
