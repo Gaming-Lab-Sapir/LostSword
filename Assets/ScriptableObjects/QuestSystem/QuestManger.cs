@@ -7,10 +7,18 @@ public class QuestManager : MonoBehaviour
 
     private readonly HashSet<string> completed = new HashSet<string>();
 
-    private void Awake()
+    void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+
+        if (transform.parent != null)
+            transform.SetParent(null);
+
         DontDestroyOnLoad(gameObject);
     }
 

@@ -170,6 +170,7 @@ MonoBehaviour:
   moveSpeed: 2
   deathDelay: 0.5
   enemyDamage: 10
+  chaseRange: 30
 --- !u!95 &387221280031019068
 Animator:
   serializedVersion: 7

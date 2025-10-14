@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float deathDelay = 0.5f;      
     [SerializeField] private int enemyDamage = 10;
     Transform target;
-
+    [SerializeField] private float chaseRange = 10f;
 
     bool isActive = true;
     Rigidbody2D rb;
@@ -32,13 +32,24 @@ public class Enemy : MonoBehaviour
     {
         if (isActive && target)
         {
-            if(animator != null)
+            Vector2 toPlayer = (Vector2)(target.position - transform.position);
+
+            if (toPlayer.sqrMagnitude <= chaseRange * chaseRange)
             {
-                animator.SetBool("Moving", true);
-                animator.SetFloat("MoveX", (target.position.x - transform.position.x));
-                animator.SetFloat("MoveY", (target.position.y - transform.position.y));
+                if (animator != null)
+                {
+                    animator.SetBool("Moving", true);
+                    animator.SetFloat("MoveX", toPlayer.x);
+                    animator.SetFloat("MoveY", toPlayer.y);
+                }
+
+                rb.linearVelocity = toPlayer.normalized * moveSpeed;
             }
-            rb.linearVelocity = ((Vector2)(target.position - transform.position)).normalized * moveSpeed;
+            else
+            {
+                if (animator != null) animator.SetBool("Moving", false);
+                rb.linearVelocity = Vector2.zero;
+            }
         }
         else
         {

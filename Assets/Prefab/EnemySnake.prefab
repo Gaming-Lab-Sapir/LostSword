@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0786163d8a9b33d4fa57d0483d9df63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 3
   deathDelay: 0.7
   enemyDamage: 10
+  chaseRange: 10
 --- !u!50 &7948458038301878587
 Rigidbody2D:
   serializedVersion: 5
