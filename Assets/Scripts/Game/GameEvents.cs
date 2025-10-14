@@ -9,12 +9,14 @@ public static class GameEvents
     public static event Action ArrowShot;
     public static event Action GameLost;
 
-    public static event Action<string> QuestCompleted;              
+    public static event Action<string> QuestCompleted;
     public static event Action<string, int, int> QuestProgress;
 
     public static event Action<string> BookCollected;
 
     public static event Action<string, bool> LeverChanged;
+
+    public static event Action<int, int, int, int> QuestCountersChanged;
 
     public static void RaiseArrowShot() => ArrowShot?.Invoke();
     public static void RaiseEnemyKilledByArrow() => EnemyKilledByArrow?.Invoke();
@@ -27,4 +29,7 @@ public static class GameEvents
         QuestProgress?.Invoke(questId, current, total);
     public static void RaiseBookCollected(string bookId) => BookCollected?.Invoke(bookId);
     public static void RaiseLeverChanged(string leverId, bool isOn) => LeverChanged?.Invoke(leverId, isOn);
+
+    public static void RaiseQuestCounters(int coins, int kills, int coinsTotal, int killsTotal) =>
+        QuestCountersChanged?.Invoke(coins, kills, coinsTotal, killsTotal);
 }
