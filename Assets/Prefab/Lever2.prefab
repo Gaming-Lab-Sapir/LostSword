@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2082673549974629276}
   - component: {fileID: 8389608196723322833}
   - component: {fileID: 6269219924750935353}
+  - component: {fileID: 3377040728290194562}
   m_Layer: 0
   m_Name: Lever2
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8595814, y: 1.3933103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,9 +119,22 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.36007977}
   m_Radius: 0.36007977
+--- !u!114 &3377040728290194562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081067875574283316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa25f4b8e5e2db469a57a9ecdaf8448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leverId: Lever2

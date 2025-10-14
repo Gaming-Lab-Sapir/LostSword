@@ -23,7 +23,11 @@ public class ActivateLeversQuestStep : QuestStep
         if (!onLevers.Add(leverId)) return;
 
         UpdateUI();
-        if (onLevers.Count == requiredLeverIds.Count) FinishQuest();
+        if (onLevers.Count == requiredLeverIds.Count)
+        {
+            GameEvents.RaiseQuestCompleted(questInfo.id); 
+            FinishQuest();
+        }
     }
     private void UpdateUI()
     {
