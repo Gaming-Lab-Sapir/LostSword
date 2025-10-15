@@ -14,10 +14,7 @@ public class ActivateLeversQuestStep : QuestStep
     {
         GameEvents.LeverChanged += OnLeverChanged;
         GameEvents.SwordCollected += OnSwordCollected;
-
-        GameEvents.RaiseGatesProgress(onLevers.Count, requiredLeverIds.Count);
-        GameEvents.RaiseSwordProgress(swordPicked ? 1 : 0, 1);
-        GameEvents.RaiseQuestProgress(questInfo.id, onLevers.Count + (swordPicked ? 1 : 0), requiredLeverIds.Count + 1);
+        UpdateUI(); 
     }
 
     private void OnDisable()
@@ -49,7 +46,7 @@ public class ActivateLeversQuestStep : QuestStep
         if (!IsComplete) return;
 
         if (questInfo != null)
-            GameEvents.RaiseQuestCompleted(questInfo.id); 
+            GameEvents.RaiseQuestCompleted(questInfo.id);
 
         FinishQuest();
     }
@@ -59,6 +56,11 @@ public class ActivateLeversQuestStep : QuestStep
         GameEvents.RaiseGatesProgress(onLevers.Count, requiredLeverIds.Count);
         GameEvents.RaiseSwordProgress(swordPicked ? 1 : 0, 1);
 
-        GameEvents.RaiseQuestProgress(questInfo.id, onLevers.Count + (swordPicked ? 1 : 0), requiredLeverIds.Count + 1);
+        if (questInfo != null)
+            GameEvents.RaiseQuestProgress(
+                questInfo.id,
+                onLevers.Count + (swordPicked ? 1 : 0),
+                requiredLeverIds.Count + 1
+            );
     }
 }
