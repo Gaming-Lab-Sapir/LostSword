@@ -10,7 +10,6 @@ public class Level3HUDController : MonoBehaviour
 
     void OnEnable()
     {
-        GameEvents.GatesProgressChanged += OnGates;
         GameEvents.SwordProgressChanged += OnSword;
         GameEvents.QuestCompleted += OnQuestCompleted;
 
@@ -21,7 +20,6 @@ public class Level3HUDController : MonoBehaviour
 
     void OnDisable()
     {
-        GameEvents.GatesProgressChanged -= OnGates;
         GameEvents.SwordProgressChanged -= OnSword;
         GameEvents.QuestCompleted -= OnQuestCompleted;
     }

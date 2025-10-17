@@ -5,6 +5,7 @@ public class FinishZoneTransition : MonoBehaviour
     [Header("Transition")]
     [SerializeField] private string actionName;
     [SerializeField] private bool onlyOnce = true;
+    [SerializeField] private bool quitGame = false;   
 
     [Header("Requirement")]
     [SerializeField] private QuestInfoSO requiredQuest;
@@ -24,6 +25,8 @@ public class FinishZoneTransition : MonoBehaviour
                 break;
             }
         }
+        if (transition == null && !string.IsNullOrEmpty(actionName))
+            Debug.Log($"no NamedActionTransition found for action '{actionName}'.");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,7 +50,8 @@ public class FinishZoneTransition : MonoBehaviour
         }
 
         used = true;
-        Debug.Log("finish");
         if (transition != null) transition.DoAction();
+
+        if (quitGame) AppQuitter.Quit();  
     }
 }

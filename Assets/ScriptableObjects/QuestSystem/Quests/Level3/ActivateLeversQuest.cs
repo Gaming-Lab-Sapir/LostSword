@@ -7,7 +7,7 @@ public class ActivateLeversQuestStep : QuestStep
 
     private readonly HashSet<string> onLevers = new();
     private bool swordPicked;
-
+    [SerializeField] private GameObject gate;
     private bool IsComplete => onLevers.Count == requiredLeverIds.Count && swordPicked;
 
     private void OnEnable()
@@ -27,7 +27,7 @@ public class ActivateLeversQuestStep : QuestStep
     {
         if (!isOn || !requiredLeverIds.Contains(leverId)) return;
         if (!onLevers.Add(leverId)) return;
-
+        if (onLevers.Count == requiredLeverIds.Count) Destroy(gate);
         UpdateUI();
         TryComplete();
     }
@@ -53,7 +53,6 @@ public class ActivateLeversQuestStep : QuestStep
 
     private void UpdateUI()
     {
-        GameEvents.RaiseGatesProgress(onLevers.Count, requiredLeverIds.Count);
         GameEvents.RaiseSwordProgress(swordPicked ? 1 : 0, 1);
 
         if (questInfo != null)
