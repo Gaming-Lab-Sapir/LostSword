@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  deathDelay: 0.7
+  deathDelay: 0.1
   enemyDamage: 10
   chaseRange: 10
 --- !u!50 &5532685465525835991
@@ -168,8 +168,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.22
+  m_Offset: {x: 0, y: 0.25342128}
+  m_Radius: 0.4734213
 --- !u!114 &2417177006001031592
 MonoBehaviour:
   m_ObjectHideFlags: 0

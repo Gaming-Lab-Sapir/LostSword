@@ -25,8 +25,6 @@ public class FinishZoneTransition : MonoBehaviour
                 break;
             }
         }
-        if (transition == null && !string.IsNullOrEmpty(actionName))
-            Debug.Log($"no NamedActionTransition found for action '{actionName}'.");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
