@@ -20,6 +20,6 @@ public class StartSceneUIManager : MonoBehaviour
             startButton.onClick.AddListener(transition.DoAction);
 
         if (exitButton)
-            exitButton.onClick.AddListener(Application.Quit);
+            exitButton.onClick.AddListener(AppQuitter.Quit);
     }
 }

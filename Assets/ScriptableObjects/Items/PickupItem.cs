@@ -9,6 +9,8 @@ public class PickupItem : MonoBehaviour
     [Header("Consumables")]
     public bool consumeOnPickup = false;
 
+    [SerializeField] private ItemSO swordSO;
+
     private void Reset()
     {
         var col = GetComponent<Collider2D>();
@@ -61,6 +63,8 @@ public class PickupItem : MonoBehaviour
                 Debug.Log($"{item.displayName} collected");
                 break;
         }
+        if (item == swordSO)
+            GameEvents.RaiseSwordCollected();
 
         if (destroyOnPickup) Destroy(gameObject);
     }

@@ -33,17 +33,19 @@ public class Arrow : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-       
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy>()?.HitByArrow();
             Destroy(gameObject);
             return;
         }
-
-        
         if (other.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Gate"))
         {
             Destroy(gameObject);
             return;
